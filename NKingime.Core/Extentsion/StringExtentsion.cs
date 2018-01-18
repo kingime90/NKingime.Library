@@ -29,22 +29,22 @@ namespace NKingime.Core.Extentsion
         }
 
         /// <summary>
-        /// 
+        /// 获取字符串。
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="defVal"></param>
-        /// <returns></returns>
+        /// <param name="value">要获取的字符串。</param>
+        /// <param name="defVal">默认字符串。</param>
+        /// <returns>如果 value 参数不为 null，则为 value；如果 defVal 参数不为 null，则为 defVal；否则为 null（default(System.String)）。</returns>
         public static string GetString(this string value, string defVal = "")
         {
             return value.GetOrDefault(defVal);
         }
 
         /// <summary>
-        /// 
+        /// 获取移除数组中指定的一组字符后的字符串。
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="trimFlag"></param>
-        /// <param name="trimChars"></param>
+        /// <param name="value">要获取的字符串。</param>
+        /// <param name="trimFlag">移除字符串标示。</param>
+        /// <param name="trimChars">要删除的 Unicode 字符的数组，或 null。</param>
         /// <returns></returns>
         public static string GetString(this string value, TrimStringFlag trimFlag, params char[] trimChars)
         {
@@ -52,12 +52,12 @@ namespace NKingime.Core.Extentsion
         }
 
         /// <summary>
-        /// 
+        /// 获取移除数组中指定的一组字符后的字符串。
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="defVal"></param>
-        /// <param name="trimFlag"></param>
-        /// <param name="trimChars"></param>
+        /// <param name="value">要获取的字符串。</param>
+        /// <param name="defVal">默认字符串。</param>
+        /// <param name="trimFlag">移除字符串标示。</param>
+        /// <param name="trimChars">要删除的 Unicode 字符的数组，或 null。</param>
         /// <returns></returns>
         public static string GetString(this string value, string defVal, TrimStringFlag trimFlag, params char[] trimChars)
         {
@@ -65,11 +65,11 @@ namespace NKingime.Core.Extentsion
         }
 
         /// <summary>
-        /// 
+        /// 从当前 System.String 对象移除数组中指定的一组字符。
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="trimFlag"></param>
-        /// <param name="trimChars"></param>
+        /// <param name="value">目标字符串。</param>
+        /// <param name="trimFlag">移除字符串标示。</param>
+        /// <param name="trimChars">要删除的 Unicode 字符的数组，或 null。</param>
         /// <returns></returns>
         public static string Trim(this string value, TrimStringFlag trimFlag, params char[] trimChars)
         {

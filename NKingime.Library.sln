@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NKingime.Core", "NKingime.Core\NKingime.Core.csproj", "{EBD0DB4D-B301-4177-9DB9-FAF6B77FC08B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NKingime.Core.Tests", "NKingime.Core.Tests\NKingime.Core.Tests.csproj", "{5D2B6D8F-C78A-404C-88BD-0005D6B093B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EBD0DB4D-B301-4177-9DB9-FAF6B77FC08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD0DB4D-B301-4177-9DB9-FAF6B77FC08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD0DB4D-B301-4177-9DB9-FAF6B77FC08B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2B6D8F-C78A-404C-88BD-0005D6B093B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2B6D8F-C78A-404C-88BD-0005D6B093B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2B6D8F-C78A-404C-88BD-0005D6B093B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2B6D8F-C78A-404C-88BD-0005D6B093B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
