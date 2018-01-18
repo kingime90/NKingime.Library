@@ -49,7 +49,11 @@
     <Compile Include="Flag\TrimStringFlag.cs" />
     <Compile Include="General\KeyValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\ArgumentUtil.cs" />
+    <Compile Include="Util\EnumUtil.cs" />
     <Compile Include="Util\JsonUtil.cs" />
+    <Compile Include="Util\ReflectionUtil.cs" />
+    <Compile Include="Util\TryUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
