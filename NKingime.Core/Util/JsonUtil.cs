@@ -92,16 +92,16 @@ namespace NKingime.Core.Util
         /// <param name="value">要反序列化的JSON字符串。</param>
         /// <param name="anonymousTypeObject">匿名类型对象。</param>
         /// <returns></returns>
-        public static T Deserialize<T>(string value, T anonymousTypeObject)
+        public static T Deserialize<T>(string value, T anonymousTypeObject) where T : class
         {
-            try
+            var obj = TryUtil.Action<T>((result) =>
             {
-                return JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
-            }
-            catch
+                result = JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
+            }, (ex, result) =>
             {
-                return anonymousTypeObject;
-            }
+                result = anonymousTypeObject;
+            });
+            return obj;
         }
     }
 }
