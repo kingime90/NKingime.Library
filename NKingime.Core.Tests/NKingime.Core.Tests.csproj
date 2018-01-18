@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -43,20 +47,22 @@
         <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
       </ItemGroup>
     </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </Otherwise>
+    <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Extentsion\StringExtentsionTests.cs" />
-    <Compile Include="Extentsion\GeneralExtentsionTests.cs" />
+    <Compile Include="Extentsion\StringExtentsionTest.cs" />
+    <Compile Include="Extentsion\GeneralExtentsionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NKingime.Core\NKingime.Core.csproj">
+      <Project>{ebd0db4d-b301-4177-9db9-faf6b77fc08b}</Project>
+      <Name>NKingime.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

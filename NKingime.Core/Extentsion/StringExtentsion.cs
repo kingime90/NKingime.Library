@@ -7,7 +7,6 @@ namespace NKingime.Core.Extentsion
     /// </summary>
     public static class StringExtentsion
     {
-
         /// <summary>
         /// 指示指定的字符串是 null 还是 System.String.Empty 字符串。
         /// </summary>
