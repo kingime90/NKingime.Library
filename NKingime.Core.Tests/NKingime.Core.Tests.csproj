@@ -54,6 +54,7 @@
     <Compile Include="Extentsion\GeneralExtentsionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\JsonUtilTest.cs" />
+    <Compile Include="Util\TryUtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

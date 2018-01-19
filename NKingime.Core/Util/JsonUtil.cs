@@ -86,22 +86,66 @@ namespace NKingime.Core.Util
         }
 
         /// <summary>
-        /// 将JSON字符串反序列化为指定的匿名类型。
+        ///  尝试将JSON字符串反序列化为指定.NET类型。
         /// </summary>
         /// <typeparam name="T">要反序列化的对象的类型。</typeparam>
         /// <param name="value">要反序列化的JSON字符串。</param>
+        /// <param name="defVal">反序列化失败默认值。</param>
+        /// <returns></returns>
+        public static T TryDeserialize<T>(string value, T defVal)
+        {
+            T result = default(T);
+            TryUtil.Action(() =>
+            {
+                result = Deserialize<T>(value);
+            }, (ex) =>
+            {
+                result = defVal;
+            });
+            return result;
+        }
+
+        /// <summary>
+        ///  尝试将JSON字符串反序列化为指定.NET类型。
+        /// </summary>
+        /// <typeparam name="T">要反序列化的对象的类型。</typeparam>
+        /// <param name="value">要反序列化的JSON字符串。</param>
+        /// <returns></returns>
+        public static T TryDeserialize<T>(string value)
+        {
+            return TryDeserialize<T>(value, default(T));
+        }
+
+        /// <summary>
+        /// 将JSON字符串反序列化为指定的匿名类型。
+        /// </summary>
+        /// <typeparam name="T">要反序列化的匿名对象类型。</typeparam>
+        /// <param name="value">要反序列化的JSON字符串。</param>
         /// <param name="anonymousTypeObject">匿名类型对象。</param>
         /// <returns></returns>
-        public static T Deserialize<T>(string value, T anonymousTypeObject) where T : class
+        public static T DeserializeAnonymousType<T>(string value, T anonymousTypeObject)
         {
-            var obj = TryUtil.Action<T>((result) =>
+            return JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
+        }
+
+        /// <summary>
+        /// 尝试将JSON字符串反序列化为指定的匿名类型。
+        /// </summary>
+        /// <typeparam name="T">要反序列化的匿名对象类型。</typeparam>
+        /// <param name="value">要反序列化的JSON字符串。</param>
+        /// <param name="anonymousTypeObject">匿名类型对象。</param>
+        /// <returns></returns>
+        public static T TryDeserializeAnonymousType<T>(string value, T anonymousTypeObject)
+        {
+            T result = default(T);
+            TryUtil.Action(() =>
             {
-                result = JsonConvert.DeserializeAnonymousType(value, anonymousTypeObject);
-            }, (ex, result) =>
+                result = DeserializeAnonymousType(value, anonymousTypeObject);
+            }, (ex) =>
             {
                 result = anonymousTypeObject;
             });
-            return obj;
+            return result;
         }
     }
 }

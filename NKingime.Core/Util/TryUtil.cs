@@ -12,8 +12,8 @@ namespace NKingime.Core.Util
         /// 尝试调用指定无返回值的方法。
         /// </summary>
         /// <param name="tryAction">不具有参数并且没有返回值的方法。</param>
-        /// <param name="exceptionAction">发生异常回调的方法（默认 null）。</param>
-        public static void Action(Action tryAction, Action<Exception> exceptionAction = null)
+        /// <param name="exceptionAction">发生异常回调的方法。</param>
+        public static void Action(Action tryAction, Action<Exception> exceptionAction)
         {
             try
             {
@@ -21,31 +21,24 @@ namespace NKingime.Core.Util
             }
             catch (Exception ex)
             {
-                if (exceptionAction.IsNotNull())
-                    exceptionAction(ex);
+                exceptionAction(ex);
             }
         }
 
         /// <summary>
         /// 尝试调用指定无返回值的方法。
         /// </summary>
-        /// <typeparam name="T">不具有参数并且没有返回值的方法。</typeparam>
-        /// <param name="tryFunc">具有返回值的方法。</param>
-        /// <param name="exceptionFunc">发生异常回调的方法（默认 null）。</param>
-        /// <returns></returns>
-        public static T Action<T>(Action<T> tryAction, Action<Exception, T> exceptionAction = null) where T : class
+        /// <param name="tryAction">不具有参数并且没有返回值的方法。</param>
+        public static void Action(Action tryAction)
         {
-            T result = default(T);
             try
             {
-                tryAction(result);
+                tryAction();
             }
-            catch (Exception ex)
+            catch
             {
-                if (exceptionAction.IsNotNull())
-                    exceptionAction(ex, result);
+
             }
-            return result;
         }
     }
 }

@@ -5,7 +5,7 @@ using NKingime.Core.Util;
 namespace NKingime.Core.Tests.Util
 {
     /// <summary>
-    /// JSON应用测试。
+    /// JSON应用单元测试。
     /// </summary>
     [TestFixture]
     public class JsonUtilTest
@@ -18,7 +18,7 @@ namespace NKingime.Core.Tests.Util
         {
             var entity = new { Success = false, Message = string.Empty };
             string json = "[]";
-            var result = JsonUtil.Deserialize(json, entity);
+            var result = JsonUtil.DeserializeAnonymousType(json, entity);
         }
     }
 }
