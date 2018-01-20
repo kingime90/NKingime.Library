@@ -1,5 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
+using System.Configuration;
+using NKingime.Core.Config;
+using System.Linq;
 
 namespace NKingime.Core.Tests.Util
 {
@@ -15,7 +18,16 @@ namespace NKingime.Core.Tests.Util
         [Test]
         public void Action()
         {
+            var customRegisterSection = (CustomRegisterSection)ConfigurationManager.GetSection("custom.config/customRegister");
+            var behaviours = customRegisterSection.Behaviours.Cast<BehaviourElement>();
+            foreach (var behaviour in behaviours)
+            {
+                var instances = behaviour.Instances.Cast<InstanceElement>();
+                foreach (var instance in instances)
+                {
 
+                }
+            }
         }
     }
 }

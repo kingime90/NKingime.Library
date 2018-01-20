@@ -43,6 +43,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
@@ -56,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\BehaviourCollection.cs" />
+    <Compile Include="Config\BehaviourElement.cs" />
+    <Compile Include="Config\CustomRegisterSection.cs" />
+    <Compile Include="Config\InstanceCollection.cs" />
+    <Compile Include="Config\InstanceElement.cs" />
     <Compile Include="Extentsion\GeneralExtentsion.cs" />
     <Compile Include="Extentsion\StringExtentsion.cs" />
     <Compile Include="Flag\TrimStringFlag.cs" />
