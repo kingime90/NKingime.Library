@@ -1,26 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NKingime.Core.Setting;
+using System;
 
 namespace NKingime.Core.Log
 {
     /// <summary>
     /// 日志记录器。
     /// </summary>
-    public interface ILogger
+    public interface ILogger: ISetting
     {
-        /// <summary>
-        /// 是否启用。
-        /// </summary>
-        bool Enabled { get; }
-
-        /// <summary>
-        /// 优先级（倒序）。
-        /// </summary>
-        int Priority { get; }
-
         /// <summary>
         /// 记录调试。
         /// </summary>

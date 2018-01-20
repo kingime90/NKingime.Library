@@ -1,5 +1,5 @@
 ﻿
-namespace NKingime.Core.General
+namespace NKingime.Core.Entity
 {
     /// <summary>
     /// 定义可设置或检索的键/值对。
