@@ -4,9 +4,9 @@ using System.Configuration;
 namespace NKingime.Core.Config
 {
     /// <summary>
-    /// 自定义注册配置节。
+    /// 自定行为配置节。
     /// </summary>
-    public class CustomRegisterSection : ConfigurationSection
+    public class CustomBehaviourSection : ConfigurationSection
     {
         /// <summary>
         /// 行为集合。

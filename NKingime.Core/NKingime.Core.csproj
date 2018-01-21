@@ -59,13 +59,14 @@
   <ItemGroup>
     <Compile Include="Config\BehaviourCollection.cs" />
     <Compile Include="Config\BehaviourElement.cs" />
-    <Compile Include="Config\CustomRegisterSection.cs" />
+    <Compile Include="Config\CustomBehaviourSection.cs" />
     <Compile Include="Config\InstanceCollection.cs" />
     <Compile Include="Config\InstanceElement.cs" />
     <Compile Include="Extentsion\GeneralExtentsion.cs" />
     <Compile Include="Extentsion\StringExtentsion.cs" />
     <Compile Include="Flag\TrimStringFlag.cs" />
     <Compile Include="Entity\KeyValue.cs" />
+    <Compile Include="General\BehaviourBase.cs" />
     <Compile Include="Ioc\IDependency.cs" />
     <Compile Include="Log\ILogger.cs" />
     <Compile Include="Log\Log4NetLogger.cs" />
@@ -82,9 +83,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="General\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
