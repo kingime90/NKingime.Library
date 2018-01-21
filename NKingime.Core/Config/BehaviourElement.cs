@@ -9,23 +9,23 @@ namespace NKingime.Core.Config
     public class BehaviourElement : ConfigurationElement
     {
         /// <summary>
-        /// 名称。
+        /// 类型名称。
         /// </summary>
-        [ConfigurationProperty("name")]
-        public string Name
+        [ConfigurationProperty("typeName")]
+        public string TypeName
         {
-            get { return Convert.ToString(this["name"]); }
-            set { this["name"] = value; }
+            get { return Convert.ToString(this["typeName"]); }
+            set { this["typeName"] = value; }
         }
 
         /// <summary>
-        /// 类型。
+        /// 程序集名称。
         /// </summary>
-        [ConfigurationProperty("type")]
-        public string Type
+        [ConfigurationProperty("assembly")]
+        public string Assembly
         {
-            get { return Convert.ToString(this["type"]); }
-            set { this["type"] = value; }
+            get { return Convert.ToString(this["assembly"]); }
+            set { this["assembly"] = value; }
         }
 
         /// <summary>

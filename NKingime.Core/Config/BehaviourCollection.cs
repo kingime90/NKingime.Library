@@ -31,7 +31,7 @@ namespace NKingime.Core.Config
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((BehaviourElement)element).Name;
+            return ((BehaviourElement)element).TypeName;
         }
     }
 }

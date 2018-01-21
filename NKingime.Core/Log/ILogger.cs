@@ -1,12 +1,11 @@
-﻿using NKingime.Core.Setting;
-using System;
+﻿using System;
 
 namespace NKingime.Core.Log
 {
     /// <summary>
     /// 日志记录器。
     /// </summary>
-    public interface ILogger: ISetting
+    public interface ILogger
     {
         /// <summary>
         /// 记录调试。
