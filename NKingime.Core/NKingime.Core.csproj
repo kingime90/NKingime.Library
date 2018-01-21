@@ -75,6 +75,7 @@
     <Compile Include="Setting\ISetting.cs" />
     <Compile Include="Setting\SettingBase.cs" />
     <Compile Include="Util\ArgumentUtil.cs" />
+    <Compile Include="Util\BehaviourUtil.cs" />
     <Compile Include="Util\EnumUtil.cs" />
     <Compile Include="Util\JsonUtil.cs" />
     <Compile Include="Util\ReflectionUtil.cs" />

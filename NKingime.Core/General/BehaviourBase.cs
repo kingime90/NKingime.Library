@@ -1,16 +1,13 @@
 ﻿using System;
-using NKingime.Core.Config;
 using NKingime.Core.Log;
 using NKingime.Core.Util;
-using System.Configuration;
-using System.Linq;
 
 namespace NKingime.Core.General
 {
     /// <summary>
     /// 行为基类。
     /// </summary>
-    public class BehaviourBase
+    public abstract class BehaviourBase
     {
         /// <summary>
         /// 行为配置节名称。
@@ -22,40 +19,25 @@ namespace NKingime.Core.General
             Logger = CreateBehaviourInstance<LoggerBase>();
         }
 
-        private BehaviourBase()
+        protected BehaviourBase()
         {
-            
+
         }
 
         /// <summary>
         /// 日志记录器基类。
         /// </summary>
-        public static LoggerBase Logger { get; private set; }
+        public static readonly LoggerBase Logger;
 
         /// <summary>
         /// 创建行为实例。
         /// </summary>
         /// <typeparam name="T">行为类型。</typeparam>
+        /// <param name="behaviourType">行为类型，默认 null。</param>
         /// <returns></returns>
-        public static T CreateBehaviourInstance<T>() where T : class
+        public static T CreateBehaviourInstance<T>(Type behaviourType = null) where T : class
         {
-            T result = default(T);
-            var customBehaviourSection = (CustomBehaviourSection)ConfigurationManager.GetSection(SectionName);
-            var behaviourElements = customBehaviourSection.Behaviours.Cast<BehaviourElement>();
-            var behaviourType = typeof(T);
-            string assemblyName = behaviourType.Assembly.GetName().Name;
-            var behaviourElement = behaviourElements.FirstOrDefault(p => p.TypeName == behaviourType.FullName && p.Assembly == assemblyName);
-            if (behaviourElement == null)
-                return result;
-            //
-            var instanceElements = behaviourElement.Instances.Cast<InstanceElement>();
-            var instanceElement = instanceElements.OrderByDescending(s => s.Priority).FirstOrDefault(p => p.Enabled);
-            if (instanceElement == null)
-                return result;
-            //
-            var instance = ReflectionUtil.CreateInstances(instanceElement.Assembly, instanceElement.TypeName, true);
-            result = instance as T;
-            return result;
+            return BehaviourUtil.CreateBehaviourInstance<T>(behaviourType);
         }
     }
 }

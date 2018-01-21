@@ -6,6 +6,7 @@ using System.Linq;
 using NKingime.Core.Log;
 using NKingime.Core.Util;
 using NKingime.Core.General;
+using NKingime.Core.Tests.General;
 
 namespace NKingime.Core.Tests.Log
 {
@@ -21,22 +22,16 @@ namespace NKingime.Core.Tests.Log
         [Test]
         public void Debug()
         {
-            //var customBehaviourSection = (CustomBehaviourSection)ConfigurationManager.GetSection("custom.config/customBehaviour");
-            //var behaviourElements = customBehaviourSection.Behaviours.Cast<BehaviourElement>();
-            //var behaviourType = typeof(LoggerBase);
-            //string assemblyName = behaviourType.Assembly.GetName().Name;
-            //var behaviourElement = behaviourElements.FirstOrDefault(p => p.TypeName == behaviourType.FullName && p.Assembly == assemblyName);
-            //if (behaviourElement == null) return;
-            ////
-            //var instanceElements = behaviourElement.Instances.Cast<InstanceElement>();
-            //var instanceElement = instanceElements.OrderByDescending(s => s.Priority).FirstOrDefault(p => p.Enabled);
-            //if (instanceElement == null) return;
-            ////
-            //var instance = ReflectionUtil.CreateInstances(instanceElement.Assembly, instanceElement.TypeName, true);
-            //var logger = instance as LoggerBase;
-            //logger.InfoAsync($"系统当前时间：{DateTime.Now}");
-
-            var logger = BehaviourBase.Logger;
+            var baseInstance = new BehaviourBaseInstance();
+            baseInstance.Info("循环开始......");
+            for (int i = 0; i < 1000; i++)
+            {
+                baseInstance.Info($"系统当前时间：{DateTime.Now}");
+            }
+            baseInstance.Info("循环结束......");
+            baseInstance.Info("睡眠开始......");
+            System.Threading.Thread.Sleep(1000 * 60 * 2);
+            baseInstance.Info("睡眠结束......");
         }
     }
 }
