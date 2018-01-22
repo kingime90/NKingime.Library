@@ -1,12 +1,12 @@
 ﻿using System;
-using NKingime.Core.Extentsion;
+using NKingime.Core.General;
 
 namespace NKingime.Core.Util
 {
     /// <summary>
     /// 尝试应用。
     /// </summary>
-    public static class TryUtil
+    public class TryUtil : BehaviourBase
     {
         /// <summary>
         /// 尝试调用指定无返回值的方法。
@@ -21,7 +21,9 @@ namespace NKingime.Core.Util
             }
             catch (Exception ex)
             {
-                exceptionAction(ex);
+                //if (exceptionAction != null)
+                //    exceptionAction(ex);
+                exceptionAction?.Invoke(ex);
             }
         }
 
@@ -29,16 +31,29 @@ namespace NKingime.Core.Util
         /// 尝试调用指定无返回值的方法。
         /// </summary>
         /// <param name="tryAction">不具有参数并且没有返回值的方法。</param>
-        public static void Action(Action tryAction)
+        /// <param name="throwOnLog">发生异常是否记录日志。</param>
+        public static void Action(Action tryAction, bool throwOnLog = false)
         {
-            try
-            {
-                tryAction();
-            }
-            catch
-            {
+            Action(tryAction, throwOnLog, "尝试调用方法，发生异常。");
+        }
 
+        /// <summary>
+        /// 尝试调用指定无返回值的方法。
+        /// </summary>
+        /// <param name="tryAction">不具有参数并且没有返回值的方法。</param>
+        /// <param name="throwOnLog">发生异常是否记录日志。</param>
+        /// <param name="message">发生异常消息。</param>
+        public static void Action(Action tryAction, bool throwOnLog, string message)
+        {
+            Action<Exception> exceptionAction = null;
+            if (throwOnLog)
+            {
+                exceptionAction = (ex) =>
+                {
+                    Logger.Error(message, ex);
+                };
             }
+            Action(tryAction, exceptionAction);
         }
     }
 }

@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Configuration;
 using NKingime.Core.Config;
 using System.Linq;
+using NKingime.Core.Util;
 
 namespace NKingime.Core.Tests.Util
 {
@@ -18,7 +19,11 @@ namespace NKingime.Core.Tests.Util
         [Test]
         public void Action()
         {
-            
+            TryUtil.Action(() =>
+            {
+                int m = 100;
+                int result = m / 0;
+            }, true);
         }
     }
 }
