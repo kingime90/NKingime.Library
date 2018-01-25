@@ -62,6 +62,7 @@
     <Compile Include="Config\CustomBehaviourSection.cs" />
     <Compile Include="Config\InstanceCollection.cs" />
     <Compile Include="Config\InstanceElement.cs" />
+    <Compile Include="Data\IDataAccess .cs" />
     <Compile Include="Extentsion\GeneralExtentsion.cs" />
     <Compile Include="Extentsion\StringExtentsion.cs" />
     <Compile Include="Flag\TrimStringFlag.cs" />

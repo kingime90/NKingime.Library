@@ -96,7 +96,7 @@ namespace NKingime.Core.Util
         /// </summary>
         /// <typeparam name="T">行为类型。</typeparam>
         /// <returns></returns>
-        public static BehaviourElement GetBehaviourElement<T>()
+        public static BehaviourElement GetBehaviourElement<T>() where T : class
         {
             return GetBehaviourElement(typeof(T));
         }
@@ -131,7 +131,7 @@ namespace NKingime.Core.Util
         /// </summary>
         /// <typeparam name="T">行为类型。</typeparam>
         /// <returns></returns>
-        public static IEnumerable<InstanceElement> GetBehaviourInstanceElements<T>()
+        public static IEnumerable<InstanceElement> GetBehaviourInstanceElements<T>() where T : class
         {
             return GetBehaviourInstanceElements(typeof(T));
         }
