@@ -65,6 +65,7 @@
     <Compile Include="Data\IDataAccess .cs" />
     <Compile Include="Extentsion\GeneralExtentsion.cs" />
     <Compile Include="Extentsion\StringExtentsion.cs" />
+    <Compile Include="Flag\CompareFlag.cs" />
     <Compile Include="Flag\TrimStringFlag.cs" />
     <Compile Include="Entity\KeyValue.cs" />
     <Compile Include="General\BehaviourBase.cs" />

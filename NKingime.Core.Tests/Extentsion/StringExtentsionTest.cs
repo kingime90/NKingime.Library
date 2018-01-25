@@ -30,6 +30,7 @@ namespace NKingime.Core.Tests.Extentsion
             value = " ";
             result = value.IsNullOrEmpty();
             Assert.IsFalse(result);
+            Assert.Greater
         }
 
         /// <summary>
